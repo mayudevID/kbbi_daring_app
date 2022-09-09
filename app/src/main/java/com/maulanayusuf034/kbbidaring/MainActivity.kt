@@ -6,18 +6,20 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.*
 import com.google.android.material.snackbar.Snackbar
 import com.maulanayusuf034.kbbidaring.retrofit.ApiService
 import retrofit2.*
+
 
 class MainActivity : AppCompatActivity() {
     private val tagApp: String = "MainActivity"
@@ -50,10 +52,10 @@ class MainActivity : AppCompatActivity() {
         resultFind.isVisible = false
         resultNotFound.isVisible = false
 
-        val pBold = resources.getFont(R.font.poppins_bold)
-        val pMedium = resources.getFont(R.font.poppins_medium)
-        val pReg = resources.getFont(R.font.poppins_regular)
-        val pSemiBold = resources.getFont(R.font.poppins_semibold)
+        val pBold = ResourcesCompat.getFont(this.baseContext, R.font.poppins_bold)
+        val pMedium = ResourcesCompat.getFont(this.baseContext, R.font.poppins_medium)
+        val pReg = ResourcesCompat.getFont(this.baseContext, R.font.poppins_regular)
+        val pSemiBold = ResourcesCompat.getFont(this.baseContext, R.font.poppins_semibold)
 
         setFont(arrayOf(pReg, pMedium, pSemiBold, pBold))
 
@@ -133,8 +135,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(tagApp, message)
     }
 
-    private fun setFont(listFont: Array<Typeface>) {
-
+    private fun setFont(listFont: Array<Typeface?>) {
         val textView1 = findViewById<TextView>(R.id.kbbi_daring)
         textView1.typeface = listFont[3]
 
