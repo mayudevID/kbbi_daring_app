@@ -116,8 +116,8 @@ class MainActivity : AppCompatActivity() {
 
         val activityArchiveButton = findViewById<View>(R.id.buttonArchive)
         activityArchiveButton.setOnClickListener {
-            val intent = Intent(this, ArchiveActivity::class.java)
-            startActivity(intent)
+            //val intent = Intent(this, ListArchiveActivity::class.java)
+            //startActivity(intent)
         }
     }
 
