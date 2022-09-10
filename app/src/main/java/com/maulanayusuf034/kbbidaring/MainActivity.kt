@@ -18,11 +18,17 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.*
 import com.google.android.material.snackbar.Snackbar
 import com.maulanayusuf034.kbbidaring.retrofit.ApiService
+import com.maulanayusuf034.kbbidaring.room.Kosakata
+import com.maulanayusuf034.kbbidaring.room.KosakataDB
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.*
 
 
 class MainActivity : AppCompatActivity() {
     private val tagApp: String = "MainActivity"
+    val db by lazy { KosakataDB(this) }
     private lateinit var rvArti: RecyclerView
     private lateinit var progressCircular: ProgressBar
     private lateinit var resultFind: LinearLayout
@@ -52,18 +58,20 @@ class MainActivity : AppCompatActivity() {
         resultFind.isVisible = false
         resultNotFound.isVisible = false
 
-        val pBold = ResourcesCompat.getFont(this.baseContext, R.font.poppins_bold)
-        val pMedium = ResourcesCompat.getFont(this.baseContext, R.font.poppins_medium)
-        val pReg = ResourcesCompat.getFont(this.baseContext, R.font.poppins_regular)
-        val pSemiBold = ResourcesCompat.getFont(this.baseContext, R.font.poppins_semibold)
-
-        setFont(arrayOf(pReg, pMedium, pSemiBold, pBold))
+//        val pBold = ResourcesCompat.getFont(this.baseContext, R.font.poppins_bold)
+//        val pMedium = ResourcesCompat.getFont(this.baseContext, R.font.poppins_medium)
+//        val pReg = ResourcesCompat.getFont(this.baseContext, R.font.poppins_regular)
+//        val pSemiBold = ResourcesCompat.getFont(this.baseContext, R.font.poppins_semibold)
+//
+//        setFont(arrayOf(pReg, pMedium, pSemiBold, pBold))
 
         val buttonFind = findViewById<Button>(R.id.findButton)
         val textData = findViewById<EditText>(R.id.editTextKosaKata)
+        val vocab = findViewById<TextView>(R.id.vocab)
 
         buttonFind.setOnClickListener {
             val getData: String = textData.text.toString().trim().lowercase()
+            vocab.text = getData
             val imm =
                 getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(this.currentFocus?.windowToken, 0)
@@ -93,7 +101,36 @@ class MainActivity : AppCompatActivity() {
             alert.setTitle("Informasi")
             alert.show()
         }
+
+        val buttonAddKosakata = findViewById<View>(R.id.buttonSave)
+        buttonAddKosakata.setOnClickListener{
+            CoroutineScope(Dispatchers.IO).launch {
+                db.kosakataDB().addKosakata(
+                    Kosakata(0, vocab.text.toString(), "ha", listOf("1","2","3"))
+                )
+            }
+        }
     }
+
+//    private fun setFont(listFont: Array<Typeface?>) {
+//        val textView1 = findViewById<TextView>(R.id.kbbi_daring)
+//        textView1.typeface = listFont[3]
+//
+//        val textView2 =  findViewById<TextView>(R.id.kbbi)
+//        textView2.typeface = listFont[1]
+//
+//        // val textView3 = findViewById<TextView>(R.id.editTextKosaKata)
+//        // textView1.typeface = listFont[0]
+//
+//        val findButton = findViewById<Button>(R.id.findButton)
+//        findButton.typeface = listFont[0]
+//
+//        val lemma = findViewById<TextView>(R.id.lemma)
+//        lemma.typeface = listFont[2]
+//
+//        // val artiKata = findViewById<TextView>(R.id.arti_kata)
+//        // artiKata.typeface = listFont[1]
+//    }
 
     private fun getDataFromApi(data: String) {
         ApiService.endpoint.getDataMean(data).enqueue(object: Callback<MainModel> {
@@ -135,23 +172,5 @@ class MainActivity : AppCompatActivity() {
         Log.d(tagApp, message)
     }
 
-    private fun setFont(listFont: Array<Typeface?>) {
-        val textView1 = findViewById<TextView>(R.id.kbbi_daring)
-        textView1.typeface = listFont[3]
 
-        val textView2 =  findViewById<TextView>(R.id.kbbi)
-        textView2.typeface = listFont[1]
-
-        // val textView3 = findViewById<TextView>(R.id.editTextKosaKata)
-        // textView1.typeface = listFont[0]
-
-        val findButton = findViewById<Button>(R.id.findButton)
-        findButton.typeface = listFont[0]
-
-        val lemma = findViewById<TextView>(R.id.lemma)
-        lemma.typeface = listFont[2]
-
-        // val artiKata = findViewById<TextView>(R.id.arti_kata)
-        // artiKata.typeface = listFont[1]
-    }
 }
