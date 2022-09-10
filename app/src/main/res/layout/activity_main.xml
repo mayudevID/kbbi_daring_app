@@ -69,7 +69,7 @@
             android:layout_gravity="top|end">
 
             <View
-                android:id="@+id/buttonSave"
+                android:id="@+id/buttonArchive"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@drawable/ic_book_bookmark"/>
@@ -100,7 +100,9 @@
         android:paddingHorizontal="24dp">
 
         <EditText
+            android:fontFamily="@font/poppins_regular"
             android:id="@+id/editTextKosaKata"
+            android:textSize="15sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -169,7 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
+                        android:textSize="15sp"
                         />
 
                     <TextView
@@ -234,6 +236,7 @@
                 android:background="@drawable/ic_baseline_error_outline_24" />
 
             <TextView
+                android:fontFamily="@font/poppins_regular"
                 android:id="@+id/notFoundTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -262,6 +265,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="10dp"
+                android:fontFamily="@font/poppins_regular"
                 android:text="@string/temukan_kosakata"
                 android:textColor="#696969"
                 android:textSize="17sp" />

@@ -4,6 +4,7 @@ package com.maulanayusuf034.kbbidaring
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
@@ -18,6 +19,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.*
 import com.google.android.material.snackbar.Snackbar
 import com.maulanayusuf034.kbbidaring.retrofit.ApiService
+import com.maulanayusuf034.kbbidaring.room.Converters
 import com.maulanayusuf034.kbbidaring.room.Kosakata
 import com.maulanayusuf034.kbbidaring.room.KosakataDB
 import kotlinx.coroutines.CoroutineScope
@@ -68,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         val buttonFind = findViewById<Button>(R.id.findButton)
         val textData = findViewById<EditText>(R.id.editTextKosaKata)
         val vocab = findViewById<TextView>(R.id.vocab)
+        val lema = findViewById<TextView>(R.id.lemma)
 
         buttonFind.setOnClickListener {
             val getData: String = textData.text.toString().trim().lowercase()
@@ -102,13 +105,19 @@ class MainActivity : AppCompatActivity() {
             alert.show()
         }
 
-        val buttonAddKosakata = findViewById<View>(R.id.buttonSave)
+        val buttonAddKosakata = findViewById<View>(R.id.addArchive)
         buttonAddKosakata.setOnClickListener{
             CoroutineScope(Dispatchers.IO).launch {
                 db.kosakataDB().addKosakata(
-                    Kosakata(0, vocab.text.toString(), "ha", listOf("1","2","3"))
+                    Kosakata(0, vocab.text.toString(), lema.text.toString(), listArti)
                 )
             }
+        }
+
+        val activityArchiveButton = findViewById<View>(R.id.buttonArchive)
+        activityArchiveButton.setOnClickListener {
+            val intent = Intent(this, ArchiveActivity::class.java)
+            startActivity(intent)
         }
     }
 
