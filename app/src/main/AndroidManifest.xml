@@ -16,11 +16,6 @@
         android:theme="@style/Theme.KBBIDaring"
         tools:targetApi="31">
         <activity
-            android:name=".ListArchiveActivity"
-            android:exported="false"
-            android:label="@string/title_activity_list_archive"
-            android:theme="@style/Theme.KBBIDaring.NoActionBar" />
-        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
