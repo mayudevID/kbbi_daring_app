@@ -9,17 +9,25 @@ import com.maulanayusuf034.kbbidaring.room.Kosakata
 import java.text.ParsePosition
 
 class ListArchiveAdapter (private val listKk: ArrayList<Kosakata>) : RecyclerView.Adapter<ListArchiveAdapter.ListArchiveViewHolder>() {
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
     inner class ListArchiveViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val vocab: TextView = itemView.findViewById(R.id.vocabList)
         val lema: TextView = itemView.findViewById(R.id.lemaList)
+        val deleteButton: View = itemView.findViewById(R.id.deleteButton)
     }
 
     override fun onBindViewHolder(holder:  ListArchiveViewHolder, position: Int) {
         val data = listKk[position]
         holder.lema.text = data.lema
         holder.vocab.text = data.vocab
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(listKk[holder.adapterPosition])
+        }
+        holder.deleteButton.setOnClickListener {
+            onItemClickCallback.onItemDeleted(listKk[holder.adapterPosition])
+        }
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListArchiveViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_list_archive, parent, false)
@@ -34,5 +42,14 @@ class ListArchiveAdapter (private val listKk: ArrayList<Kosakata>) : RecyclerVie
         listKk.clear()
         listKk.addAll(list)
         notifyDataSetChanged()
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Kosakata)
+        fun onItemDeleted(data: Kosakata)
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
     }
 }

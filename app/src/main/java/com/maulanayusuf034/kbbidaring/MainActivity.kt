@@ -2,6 +2,7 @@
 
 package com.maulanayusuf034.kbbidaring
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -116,6 +117,17 @@ class MainActivity : AppCompatActivity() {
                     Kosakata(0, vocab.text.toString(), lema.text.toString(), listArti)
                 )
             }
+            val snack = Snackbar.make(it,"\"${vocab.text.toString()}\" ditambahkan ke Arsip" ,Snackbar.LENGTH_SHORT)
+            snack.show()
+        }
+
+        val deleteVocab = findViewById<View>(R.id.deleteVocab)
+        deleteVocab.setOnClickListener {
+            resultFind.isVisible = false
+            listArti.clear()
+            lema.text = ""
+            textData.text.clear()
+            initResult.isVisible = true
         }
 
         val activityArchiveButton = findViewById<View>(R.id.buttonArchive)
@@ -141,14 +153,6 @@ class MainActivity : AppCompatActivity() {
 
                     progressCircular.isVisible = false
                     resultFind.isVisible = true
-
-                    val deleteVocab = findViewById<View>(R.id.deleteVocab)
-                    deleteVocab.setOnClickListener {
-                        resultFind.isVisible = false
-                        listArti.clear()
-                        lema.text = ""
-                        initResult.isVisible = true
-                    }
                 }
             }
 
