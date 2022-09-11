@@ -12,18 +12,14 @@
         android:id="@+id/frameAtas"
         android:layout_width="match_parent"
         android:layout_height="185dp"
+        android:background="@color/amber"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/editTextAndButton">
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="185dp"
-            android:background="#FFBF00" />
-
         <LinearLayout
+            android:background="@color/amber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -50,7 +46,7 @@
                 android:textColor="@color/black"/>
             <View
                 android:layout_width="0dp"
-                android:layout_height="15dp"/>
+                android:layout_height="13dp"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

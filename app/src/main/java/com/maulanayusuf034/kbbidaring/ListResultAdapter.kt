@@ -14,8 +14,8 @@ class ListResultAdapter(private val listArti: ArrayList<String>) : RecyclerView.
     }
 
     inner class ListViewHolder(itemView: View, viewType: Int) : RecyclerView.ViewHolder(itemView) {
-        private var timeLine: TimelineView = itemView.findViewById(R.id.timeline)
-        var artiTextView: TextView = itemView.findViewById(R.id.arti_kata)
+        private val timeLine: TimelineView = itemView.findViewById(R.id.timeline)
+        val artiTextView: TextView = itemView.findViewById(R.id.arti_kata)
 
         init {
             timeLine.initLine(viewType)
