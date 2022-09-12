@@ -47,9 +47,9 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="13dp"/>
-            <ImageView
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="24dp"
                 android:background="@drawable/border_left_right"
                 android:contentDescription="@string/todo" />
 
