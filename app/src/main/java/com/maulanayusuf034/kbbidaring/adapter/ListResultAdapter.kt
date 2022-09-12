@@ -1,4 +1,4 @@
-package com.maulanayusuf034.kbbidaring
+package com.maulanayusuf034.kbbidaring.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.github.vipulasri.timelineview.TimelineView
+import com.maulanayusuf034.kbbidaring.R
 
 class ListResultAdapter(private val listArti: ArrayList<String>) : RecyclerView.Adapter<ListResultAdapter.ListViewHolder>() {
 

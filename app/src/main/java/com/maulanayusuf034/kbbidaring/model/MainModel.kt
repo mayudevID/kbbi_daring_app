@@ -1,4 +1,4 @@
-package com.maulanayusuf034.kbbidaring
+package com.maulanayusuf034.kbbidaring.model
 
 data class MainModel (
     val lema: String,

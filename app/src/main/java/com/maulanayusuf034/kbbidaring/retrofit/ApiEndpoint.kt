@@ -1,6 +1,6 @@
 package com.maulanayusuf034.kbbidaring.retrofit
 
-import com.maulanayusuf034.kbbidaring.MainModel
+import com.maulanayusuf034.kbbidaring.model.MainModel
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

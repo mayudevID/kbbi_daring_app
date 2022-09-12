@@ -16,6 +16,9 @@
         android:theme="@style/Theme.KBBIDaring"
         tools:targetApi="31">
         <activity
+            android:name=".VocabDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListArchiveActivity"
             android:exported="false" />
         <activity

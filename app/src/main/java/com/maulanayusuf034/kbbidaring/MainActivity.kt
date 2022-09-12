@@ -1,8 +1,5 @@
-
-
 package com.maulanayusuf034.kbbidaring
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -17,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.*
 import com.google.android.material.snackbar.Snackbar
+import com.maulanayusuf034.kbbidaring.adapter.ListResultAdapter
+import com.maulanayusuf034.kbbidaring.model.MainModel
 import com.maulanayusuf034.kbbidaring.retrofit.ApiService
 import com.maulanayusuf034.kbbidaring.room.Kosakata
 import com.maulanayusuf034.kbbidaring.room.KosakataDB
@@ -42,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
         setupFindBy()
         setupVisible()
         setupListener()

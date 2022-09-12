@@ -20,6 +20,13 @@ abstract class KosakataDB : RoomDatabase(){
         @Volatile private var instance : KosakataDB? = null
         private val LOCK = Any()
 
+        fun getAppDatabase(context: Context): KosakataDB? {
+            if (instance == null) {
+                instance = buildDatabase(context.applicationContext)
+            }
+            return instance
+        }
+
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
             instance ?: buildDatabase(context).also {
                 instance = it
@@ -30,6 +37,6 @@ abstract class KosakataDB : RoomDatabase(){
             context.applicationContext,
             KosakataDB::class.java,
             "kosakata542.db"
-        ).build()
+        ).allowMainThreadQueries().build()
     }
 }
