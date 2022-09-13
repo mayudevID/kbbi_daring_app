@@ -31,6 +31,9 @@ class ListResultAdapter(private val listArti: ArrayList<String>) : RecyclerView.
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val arti = listArti[position]
         holder.artiTextView.text = arti
+        if (position == 0) {
+            holder.itemView.margin(top = 15F)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -21,7 +21,7 @@
         android:id="@+id/arti_kata"
         android:textSize="15sp"
         android:fontFamily="@font/poppins_regular"
-        android:paddingStart="30dp"
+        android:paddingStart="24dp"
         android:textColor="#2F4F4F"
         android:paddingEnd="0dp"
         android:paddingVertical="10dp"

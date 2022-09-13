@@ -1,5 +1,8 @@
 package com.maulanayusuf034.kbbidaring.adapter
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,7 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.maulanayusuf034.kbbidaring.R
 import com.maulanayusuf034.kbbidaring.room.Kosakata
-import java.text.ParsePosition
 
 class ListArchiveAdapter (private val listKk: ArrayList<Kosakata>) : RecyclerView.Adapter<ListArchiveAdapter.ListArchiveViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
@@ -28,6 +30,9 @@ class ListArchiveAdapter (private val listKk: ArrayList<Kosakata>) : RecyclerVie
         holder.deleteButton.setOnClickListener {
             onItemClickCallback.onItemDeleted(listKk[holder.adapterPosition])
         }
+        if (position == 0) {
+            holder.itemView.margin(left = 10F, right = 10F, bottom = 8F, top = 16F)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListArchiveViewHolder {
@@ -39,6 +44,7 @@ class ListArchiveAdapter (private val listKk: ArrayList<Kosakata>) : RecyclerVie
         return listKk.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData (list: List<Kosakata>) {
         listKk.clear()
         listKk.addAll(list)
@@ -53,4 +59,6 @@ class ListArchiveAdapter (private val listKk: ArrayList<Kosakata>) : RecyclerVie
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
     }
+
+
 }

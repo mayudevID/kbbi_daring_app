@@ -24,16 +24,33 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="bottom|start">
-            <TextView
-                android:fontFamily="@font/poppins_bold"
-                android:id="@+id/kbbi_daring"
-                android:paddingHorizontal="24dp"
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:text="@string/kbbi_daring"
-                android:textSize="28sp"
-                android:textColor="@color/black"/>
+                android:paddingHorizontal="24dp">
+                <TextView
+                    android:fontFamily="@font/poppins_bold"
+                    android:id="@+id/kbbi_daring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="@string/kbbi_daring"
+                    android:textSize="28sp"
+                    android:textColor="@color/black"/>
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="0dp"/>
+                <TextView
+                    android:fontFamily="@font/poppins_regular"
+                    android:id="@+id/kbbi_daring2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="@string/daring"
+                    android:textSize="28sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
             <TextView
                 android:fontFamily="@font/poppins_medium"
                 android:paddingHorizontal="24dp"
@@ -46,7 +63,7 @@
                 android:textColor="@color/black"/>
             <View
                 android:layout_width="0dp"
-                android:layout_height="13dp"/>
+                android:layout_height="15dp"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
@@ -205,10 +222,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvArti"
