@@ -2,4 +2,4 @@
 
 KBBI API from: https://kbbi-api-zhirrr.vercel.app/
 
-<!-- <img src="https://github.com/maulana2468/bloom/blob/main/assets/images/cover.png" alt="Cover" width="1000">
+<img src="https://github.com/maulana2468/kbbi_daring_app/blob/master/cover.png" alt="Cover" width="1000">
