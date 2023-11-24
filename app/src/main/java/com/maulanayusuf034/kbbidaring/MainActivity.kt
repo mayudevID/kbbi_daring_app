@@ -24,7 +24,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.*
 
-
 class MainActivity : AppCompatActivity() {
     private val tagApp: String = "MainActivity"
     private val db by lazy { KosakataDB(this) }
@@ -45,12 +44,6 @@ class MainActivity : AppCompatActivity() {
         setupFindBy()
         setupVisible()
         setupListener()
-//        val pBold = ResourcesCompat.getFont(this.baseContext, R.font.poppins_bold)
-//        val pMedium = ResourcesCompat.getFont(this.baseContext, R.font.poppins_medium)
-//        val pReg = ResourcesCompat.getFont(this.baseContext, R.font.poppins_regular)
-//        val pSemiBold = ResourcesCompat.getFont(this.baseContext, R.font.poppins_semibold)
-//
-//        setFont(arrayOf(pReg, pMedium, pSemiBold, pBold))
     }
 
     private fun setupFindBy() {

@@ -16,7 +16,6 @@ class VocabDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_vocab_detail)
 
         supportActionBar?.hide()
-        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val buttonBack = findViewById<View>(R.id.back_from_detail)
         buttonBack.setOnClickListener {
@@ -36,9 +35,4 @@ class VocabDetailActivity : AppCompatActivity() {
         val listArti = intent.getStringArrayListExtra("ARTI")
         rvArtiDetail.adapter = listArti?.let { ListResultAdapter(it) }
     }
-
-//    override fun onSupportNavigateUp(): Boolean {
-//        onBackPressed()
-//        return super.onSupportNavigateUp()
-//    }
 }

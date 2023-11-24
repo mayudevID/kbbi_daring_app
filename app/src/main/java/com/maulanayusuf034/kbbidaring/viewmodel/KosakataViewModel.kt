@@ -2,7 +2,6 @@ package com.maulanayusuf034.kbbidaring.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.maulanayusuf034.kbbidaring.room.Kosakata
 import com.maulanayusuf034.kbbidaring.room.KosakataDB
