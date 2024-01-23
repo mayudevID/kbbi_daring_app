@@ -92,14 +92,14 @@ class MainActivity : AppCompatActivity() {
         buttonInfo.setOnClickListener {
             val dialogBuilder = AlertDialog.Builder(this)
 
-            dialogBuilder.setMessage("Nama: Maulana Yusuf\nNIM: 2010512034\nPraktikum Pemrograman Mobile - A")
+            dialogBuilder.setMessage("@Mayudev\nAPI by Zhirrr")
                 .setCancelable(false)
                 .setPositiveButton("Tutup") { _, _ ->
 
                 }
 
             val alert = dialogBuilder.create()
-            alert.setTitle("Informasi")
+            alert.setTitle("Info")
             alert.show()
         }
 
@@ -161,24 +161,4 @@ class MainActivity : AppCompatActivity() {
     fun printLog(message: String) {
         Log.d(tagApp, message)
     }
-
-    //    private fun setFont(listFont: Array<Typeface?>) {
-//        val textView1 = findViewById<TextView>(R.id.kbbi_daring)
-//        textView1.typeface = listFont[3]
-//
-//        val textView2 =  findViewById<TextView>(R.id.kbbi)
-//        textView2.typeface = listFont[1]
-//
-//        // val textView3 = findViewById<TextView>(R.id.editTextKosaKata)
-//        // textView1.typeface = listFont[0]
-//
-//        val findButton = findViewById<Button>(R.id.findButton)
-//        findButton.typeface = listFont[0]
-//
-//        val lemma = findViewById<TextView>(R.id.lemma)
-//        lemma.typeface = listFont[2]
-//
-//        // val artiKata = findViewById<TextView>(R.id.arti_kata)
-//        // artiKata.typeface = listFont[1]
-//    }
 }
