@@ -9,7 +9,6 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.*
@@ -24,7 +23,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.*
 
+
 class MainActivity : AppCompatActivity() {
+
     private val tagApp: String = "MainActivity"
     private val db by lazy { KosakataDB(this) }
     private lateinit var rvArti: RecyclerView
@@ -36,7 +37,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var vocab: TextView
     private var listArti: ArrayList<String> = arrayListOf()
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -92,7 +92,20 @@ class MainActivity : AppCompatActivity() {
         buttonInfo.setOnClickListener {
             val dialogBuilder = AlertDialog.Builder(this)
 
-            dialogBuilder.setMessage("@Mayudev\nAPI by Zhirrr")
+            val packageManager = packageManager
+            val packageInfo = packageManager.getPackageInfo(
+                packageName, 0
+            )
+
+            val vName = packageInfo.versionName
+            val vCode = if (Build.VERSION.SDK_INT >= 28) {
+                packageInfo.longVersionCode
+            } else {
+                @Suppress("DEPRECATION")
+                packageInfo.versionCode
+            }
+
+            dialogBuilder.setMessage("@Mayudev\nAPI by Zhirrr\n\nV$vName+$vCode")
                 .setCancelable(false)
                 .setPositiveButton("Tutup") { _, _ ->
 
@@ -110,7 +123,7 @@ class MainActivity : AppCompatActivity() {
                     Kosakata(0, vocab.text.toString(), lema.text.toString(), listArti)
                 )
             }
-            val snack = Snackbar.make(it,"\"${vocab.text.toString()}\" ditambahkan ke Arsip" ,Snackbar.LENGTH_SHORT)
+            val snack = Snackbar.make(it,"\"${vocab.text}\" ditambahkan ke Arsip" ,Snackbar.LENGTH_SHORT)
             snack.show()
         }
 

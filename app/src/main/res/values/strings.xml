@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">KBBI Daring</string>
     <string name="kbbi_daring">KBBI</string>
-    <string name="kamus_besar_bahasa_indonesia">Kamus Besar Bahasa Indonesia</string>
+    <string name="kamus_besar_bahasa_indonesia">Kamus Besar Bahasa Indonesia Daring (Tidak Resmi)</string>
     <string name="cari_kosakata">Cari kosakata</string>
     <string name="cari">Cari</string>
     <string name="kosakata_tidak_ditemukan">Kosakata tidak ditemukan</string>
@@ -10,5 +10,5 @@
     <string name="todo">TODO</string>
     <string name="arsip_kosong">Arsip kosong</string>
     <string name="arsip">Arsip</string>
-    <string name="daring">Daring</string>
+    <string name="daring">-ku</string>
 </resources>
